@@ -5,6 +5,7 @@ import { detectProject } from "./detector.js";
 import type { TemplateData } from "./template.js";
 import {
   buildContributorsTable,
+  buildTableOfContents,
   detectMissingFields,
   fillTemplate,
   loadTemplate,
@@ -289,6 +290,14 @@ async function main() {
     ? `![License](https://img.shields.io/static/v1?label=License&message=${encodeURIComponent(license)}&color=0000ff&style=for-the-badge)`
     : undefined;
 
+  const tableOfContents = buildTableOfContents({
+    env_vars: envVars,
+    has_docker: hasDocker,
+    contributors_table: contributorsTable,
+    license,
+    author,
+  });
+
   // Monta o data
   const data: TemplateData = {
     ...info,
@@ -303,6 +312,7 @@ async function main() {
     contributors_table: contributorsTable,
     license,
     license_badge: licenseBadge,
+    table_of_contents: tableOfContents,
   };
 
   // Carrega o template

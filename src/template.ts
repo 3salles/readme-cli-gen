@@ -3,6 +3,7 @@ import path from "path";
 import type { ProjectInfo } from "./detector.js";
 
 export interface TemplateData extends ProjectInfo {
+  [key: string]: unknown;
   tech_list?: string;
   project_name?: string;
   env_vars?: string;
@@ -11,7 +12,7 @@ export interface TemplateData extends ProjectInfo {
   github_user?: string;
   contributors_table?: string;
   license_badge?: string;
-  [key: string]: unknown;
+  table_of_contents?: string;
 }
 
 export function loadTemplate(templatePath?: string): string {
@@ -95,4 +96,27 @@ export function detectMissingFields(
   }
 
   return missing;
+}
+
+export function buildTableOfContents(data: TemplateData): string {
+  const lines: string[] = [];
+
+  lines.push("* [About the Project](#book-about-the-project)");
+  lines.push("  * [Technologies](#computer-technologies)");
+  lines.push("* [Installation](#bricks-installation)");
+  lines.push("  * [Prerequisites](#construction-prerequisites)");
+  lines.push(
+    "  * [Installing Dependencies](#construction-installing-dependencies)",
+  );
+  if (data.env_vars)
+    lines.push("  * [Environment Variables](#wrench-environment-variables)");
+  if (data.has_docker)
+    lines.push("  * [Running with Docker](#whale-running-with-docker)");
+  lines.push("  * [Running](#arrow_forward-running)");
+  lines.push("* [Contributing](#handshake-contributing)");
+  if (data.contributors_table) lines.push("* [Contributors](#contributors)");
+  if (data.license) lines.push("* [License](#page_facing_up-license)");
+  if (data.author) lines.push("* [Author](#technologist-author)");
+
+  return lines.join("\n");
 }

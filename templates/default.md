@@ -23,18 +23,7 @@
 
 ## 🗂 Table of Contents
 
-- [About the Project](#book-about-the-project)
-  - [Technologies](#computer-technologies)
-- [Installation](#bricks-installation)
-  - [Prerequisites](#construction-prerequisites)
-  - [Installing Dependencies](#construction-installing-dependencies)
-    {{#if env_vars}} _ [Environment Variables](#wrench-environment-variables){{/if}}
-    {{#if has_docker}} _ [Running with Docker](#whale-running-with-docker){{/if}}
-  - [Running](#arrow_forward-running)
-- [Contributing](#handshake-contributing)
-  {{#if contributors_table}}_ [Contributors](#contributors){{/if}}
-  {{#if license}}_ [License](#page_facing_up-license){{/if}}
-  {{#if author}}\* [Author](#technologist-author){{/if}}
+{{table_of_contents}}
 
 ## :book: About The Project
 

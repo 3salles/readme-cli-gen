@@ -23,22 +23,21 @@
 
 ## 🗂 Table of Contents
 
-- [About the Project](#book-about-the-project)
-  - [Technologies](#computer-technologies)
-- [Installation](#bricks-installation)
-  - [Prerequisites](#construction-prerequisites)
-  - [Installing Dependencies](#construction-installing-dependencies)
-     _ [Environment Variables](#wrench-environment-variables)
-     _ [Running with Docker](#whale-running-with-docker)
-  - [Running](#arrow_forward-running)
-- [Contributing](#handshake-contributing)
-  
-  _ [License](#page_facing_up-license)
-  \* [Author](#technologist-author)
+## 🗂 Table of Contents
+
+* [About the Project](#book-about-the-project)
+  * [Technologies](#computer-technologies)
+* [Installation](#bricks-installation)
+  * [Prerequisites](#construction-prerequisites)
+  * [Installing Dependencies](#construction-installing-dependencies)
+  * [Running](#arrow_forward-running)
+* [Contributing](#handshake-contributing)
+* [License](#page_facing_up-license)
+* [Author](#technologist-author)
 
 ## :book: About The Project
 
-Teste
+tes
 
 ### :computer: Technologies
 
@@ -65,25 +64,6 @@ $ npm install
 ```
 
 
-
-### :wrench: Environment Variables
-
-Create a `.env` file with the following keys:
-
-```
-kjhhka
-```
-
-
-
-
-
-### :whale: Running with Docker
-
-```bash
-$ docker build -t readme-gen .
-$ docker run -d -p 4333:4333 readme-gen
-```
 
 
 
