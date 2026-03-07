@@ -86,7 +86,10 @@ async function main() {
         process.exit(0);
       }
 
-      if (!useDetected) author = undefined;
+      if (!useDetected) {
+        author = undefined;
+        githubUser = undefined;
+      }
     }
 
     if (!author) {
@@ -103,6 +106,19 @@ async function main() {
       }
 
       author = written;
+    }
+
+    if (githubUser) {
+      const useDetected = await p.confirm({
+        message: `Usuário do GitHub detectado: "${githubUser}". Deseja usá-lo?`,
+      });
+
+      if (p.isCancel(useDetected)) {
+        p.cancel("Operação cancelada.");
+        process.exit(0);
+      }
+
+      if (!useDetected) githubUser = undefined;
     }
 
     if (!githubUser) {

@@ -8,7 +8,7 @@
   ![GitHub forks](https://img.shields.io/github/forks/3salles/readme-gen?style=for-the-badge)
   ![GitHub open issues](https://img.shields.io/github/issues/3salles/readme-gen?style=for-the-badge)
   ![GitHub open pull requests](https://img.shields.io/github/issues-pr/3salles/readme-gen?style=for-the-badge)
-  ![License](https://img.shields.io/static/v1?label=License&message=ISC&color=0000ff&style=for-the-badge)
+  ![License](https://img.shields.io/static/v1?label=License&message=MIT&color=0000ff&style=for-the-badge)
 </p>
 
 ## 🗂 Índice
@@ -16,15 +16,15 @@
 - [Sobre o Projeto](#sobre-o-projeto)
 - [Tecnologias](#tecnologias)
 - [Instalação](#instalação)
-  _ [Variáveis de Ambiente](#variáveis-de-ambiente)
-  _ [Rodando com Docker](#rodando-com-docker)
+  
+  
   
   _ [Licença](#licença)
   \* [Autor](#autor)
 
 ## :book: Sobre o Projeto
 
-Teste
+teste
 
 ### :computer: Tecnologias
 
@@ -52,25 +52,6 @@ $ pnpm install
 
 
 
-### :wrench: Variáveis de Ambiente
-
-Crie um arquivo `.env` com as seguintes chaves:
-
-```
-database
-```
-
-
-
-
-
-### :whale: Rodando com Docker
-
-```bash
-$ docker build -t readme-gen .
-$ docker run -d -p 5093:5093 readme-gen
-```
-
 
 
 ### :arrow_forward: Rodando o Projeto
@@ -97,7 +78,7 @@ Consulte a documentação do GitHub sobre [como criar uma solicitação de pull]
 
 ## :page_facing_up: Licença
 
-Este projeto está sob a licença [ISC](LICENSE).
+Este projeto está sob a licença [MIT](LICENSE).
 
 
 
