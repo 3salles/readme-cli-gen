@@ -8,6 +8,7 @@
   ![GitHub forks](https://img.shields.io/github/forks/{{github_user}}/{{project_name}}?style=for-the-badge)
   ![GitHub open issues](https://img.shields.io/github/issues/{{github_user}}/{{project_name}}?style=for-the-badge)
   ![GitHub open pull requests](https://img.shields.io/github/issues-pr/{{github_user}}/{{project_name}}?style=for-the-badge)
+  {{license_badge}}
 </p>
 
 ## 🗂 Índice

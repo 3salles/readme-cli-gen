@@ -10,6 +10,7 @@ export interface TemplateData extends ProjectInfo {
   docker_port?: string;
   github_user?: string;
   contributors_table?: string;
+  license_badge?: string;
   [key: string]: unknown;
 }
 

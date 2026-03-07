@@ -269,6 +269,10 @@ async function main() {
     }
   }
 
+  const licenseBadge = license
+    ? `![License](https://img.shields.io/static/v1?label=License&message=${encodeURIComponent(license)}&color=0000ff&style=for-the-badge)`
+    : undefined;
+
   // Monta o data
   const data: TemplateData = {
     ...info,
@@ -282,6 +286,7 @@ async function main() {
     docker_port: dockerPort,
     contributors_table: contributorsTable,
     license,
+    license_badge: licenseBadge,
   };
 
   // Carrega o template
