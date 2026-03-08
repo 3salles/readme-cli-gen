@@ -131,14 +131,15 @@ export async function promptContributors(): Promise<string | undefined> {
 
   const written = await promptWithCancel(
     p.text({
-      message: "List contributors in the format Name--username, one per line:",
-      placeholder: "Beatriz Salles--3salles\nJohn Doe--johndoe",
+      message: "List contributors in the format Name--username (for multiple, separate with commas):",
+      placeholder: "John Doe--jdoe, Mary Jane--mjay",
       validate: (v) =>
         !v || v.trim() === "" ? "Enter at least one contributor." : undefined,
     }),
   );
 
-  return buildContributorsTable(written);
+  const normalized = written.split(",").map((v) => v.trim()).join("\n");
+  return buildContributorsTable(normalized);
 }
 
 export async function promptLicense(info: ProjectInfo): Promise<string | undefined> {

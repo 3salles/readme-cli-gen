@@ -119,8 +119,14 @@ Thanks to the following people who contributed to this project:
   <tr>
     <td align="center">
       <a href="https://github.com/jdoe">
-        <img src="https://avatars.githubusercontent.com/jdoe" width="100px;" alt="Jonh Doe"/><br>
-        <sub><b>Jonh Doe</b></sub>
+        <img src="https://avatars.githubusercontent.com/jdoe" width="100px;" alt="John Doe"/><br>
+        <sub><b>John Doe</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/mjay">
+        <img src="https://avatars.githubusercontent.com/mjay" width="100px;" alt="Mary Jane"/><br>
+        <sub><b>Mary Jane</b></sub>
       </a>
     </td>
   </tr>
