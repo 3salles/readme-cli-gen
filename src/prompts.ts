@@ -85,16 +85,19 @@ export async function promptAuthor(
 export async function promptDocker(
   info: ProjectInfo,
 ): Promise<{ hasDocker: string | undefined; dockerPort: string | undefined }> {
+  if (info.hasDocker) {
+    p.log.success(
+      `Dockerfile detected! Port: ${info.dockerPort ?? "not found"}`,
+    );
+  }
+
   const showDocker = await promptWithCancel(
     p.confirm({ message: "Display Docker section?" }),
   );
   if (!showDocker) return { hasDocker: undefined, dockerPort: undefined };
 
-  if (info.hasDocker) {
-    p.log.success(
-      `Dockerfile detected! Port: ${info.dockerPort ?? "not found"}`,
-    );
-    if (info.dockerPort) return { hasDocker: "true", dockerPort: info.dockerPort };
+  if (info.hasDocker && info.dockerPort) {
+    return { hasDocker: "true", dockerPort: info.dockerPort };
   }
 
   const dockerPort = await promptWithCancel(
@@ -110,13 +113,16 @@ export async function promptDocker(
 }
 
 export async function promptEnvVars(info: ProjectInfo): Promise<string | undefined> {
+  if (info.envVars && info.envVars.length > 0) {
+    p.log.success(`Detected variables: ${info.envVars.join(", ")}`);
+  }
+
   const showEnvVars = await promptWithCancel(
     p.confirm({ message: "Display environment variables section?" }),
   );
   if (!showEnvVars) return undefined;
 
   if (info.envVars && info.envVars.length > 0) {
-    p.log.success(`Detected variables: ${info.envVars.join(", ")}`);
     return info.envVars.join("\n");
   }
 
@@ -178,10 +184,24 @@ export async function promptLicense(info: ProjectInfo): Promise<string | undefin
 
 export async function promptTests(info: ProjectInfo): Promise<string | undefined> {
   if (info.testCommand) {
-    const useDetected = await promptWithCancel(
+    const showTests = await promptWithCancel(
       p.confirm({ message: `Detected test command: "${info.testCommand}". Display tests section?` }),
     );
-    if (useDetected) return info.testCommand;
+    if (!showTests) return undefined;
+
+    const useCommand = await promptWithCancel(
+      p.confirm({ message: `Use "${info.testCommand}" as test command?` }),
+    );
+    if (useCommand) return info.testCommand;
+
+    return promptWithCancel(
+      p.text({
+        message: "What is the command to run the tests?",
+        placeholder: "npm test",
+        validate: (v) =>
+          !v || v.trim() === "" ? "Command cannot be empty." : undefined,
+      }),
+    );
   }
 
   const showTests = await promptWithCancel(

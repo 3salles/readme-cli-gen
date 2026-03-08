@@ -38,10 +38,10 @@ async function main() {
   const { author, githubUser } = await promptAuthor(info);
   const { hasDocker, dockerPort } = await promptDocker(info);
   const envVars = await promptEnvVars(info);
+  const testCommand = await promptTests(info);
+  const usageCommand = await promptUsage(info);
   const contributorsTable = await promptContributors();
   const license = await promptLicense(info);
-  const usageCommand = await promptUsage(info);
-  const testCommand = await promptTests(info);
 
   const licenseBadge = license
     ? `![License](https://img.shields.io/static/v1?label=License&message=${encodeURIComponent(license)}&color=0000ff&style=for-the-badge)`
