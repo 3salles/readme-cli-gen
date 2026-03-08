@@ -105,7 +105,6 @@ export function buildTableOfContents(data: TemplateData): string {
   lines.push("* [About the Project](#book-about-the-project)");
   if (data.usage_command) lines.push("  * [Usage](#coffee-usage)");
   lines.push("  * [Technologies](#computer-technologies)");
-  lines.push("  * [Technologies](#computer-technologies)");
   lines.push("* [Installation](#bricks-installation)");
   lines.push("  * [Prerequisites](#construction-prerequisites)");
   lines.push(
