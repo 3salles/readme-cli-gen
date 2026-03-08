@@ -176,6 +176,29 @@ export async function promptLicense(info: ProjectInfo): Promise<string | undefin
   );
 }
 
+export async function promptTests(info: ProjectInfo): Promise<string | undefined> {
+  if (info.testCommand) {
+    const useDetected = await promptWithCancel(
+      p.confirm({ message: `Detected test command: "${info.testCommand}". Display tests section?` }),
+    );
+    if (useDetected) return info.testCommand;
+  }
+
+  const showTests = await promptWithCancel(
+    p.confirm({ message: "Display tests section?" }),
+  );
+  if (!showTests) return undefined;
+
+  return promptWithCancel(
+    p.text({
+      message: "What is the command to run the tests?",
+      placeholder: "npm test",
+      validate: (v) =>
+        !v || v.trim() === "" ? "Command cannot be empty." : undefined,
+    }),
+  );
+}
+
 export async function promptUsage(info: ProjectInfo): Promise<string | undefined> {
   const showUsage = await promptWithCancel(
     p.confirm({ message: "Display usage section?" }),

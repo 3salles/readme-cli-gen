@@ -249,3 +249,27 @@ describe("detectProject — git", () => {
     expect(info.githubUser).toBeUndefined();
   });
 });
+
+// ---------------------------------------------------------------------------
+// Test script detection
+// ---------------------------------------------------------------------------
+
+describe("detectProject — test command", () => {
+  it("detects 'test' script from package.json", () => {
+    writeJson(tmpDir, "package.json", { scripts: { test: "vitest run" } });
+    const info = detectProject(tmpDir);
+    expect(info.testCommand).toBe("npm run test");
+  });
+
+  it("detects 'test:unit' script from package.json", () => {
+    writeJson(tmpDir, "package.json", { scripts: { "test:unit": "vitest run" } });
+    const info = detectProject(tmpDir);
+    expect(info.testCommand).toBe("npm run test:unit");
+  });
+
+  it("returns undefined testCommand when no test script exists", () => {
+    writeJson(tmpDir, "package.json", { scripts: { start: "node index.js" } });
+    const info = detectProject(tmpDir);
+    expect(info.testCommand).toBeUndefined();
+  });
+});

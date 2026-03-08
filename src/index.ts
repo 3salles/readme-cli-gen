@@ -9,6 +9,7 @@ import {
   promptDocker,
   promptEnvVars,
   promptLicense,
+  promptTests,
   promptUsage,
   promptWithCancel,
 } from "./prompts.js";
@@ -40,6 +41,7 @@ async function main() {
   const contributorsTable = await promptContributors();
   const license = await promptLicense(info);
   const usageCommand = await promptUsage(info);
+  const testCommand = await promptTests(info);
 
   const licenseBadge = license
     ? `![License](https://img.shields.io/static/v1?label=License&message=${encodeURIComponent(license)}&color=0000ff&style=for-the-badge)`
@@ -52,6 +54,7 @@ async function main() {
     license,
     author,
     usage_command: usageCommand,
+    test_command: testCommand,
   });
 
   const data: TemplateData = {
@@ -68,6 +71,7 @@ async function main() {
     license,
     license_badge: licenseBadge,
     usage_command: usageCommand,
+    test_command: testCommand,
     table_of_contents: tableOfContents,
   };
 

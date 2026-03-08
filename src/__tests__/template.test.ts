@@ -198,4 +198,14 @@ describe("buildTableOfContents", () => {
     expect(toc).not.toContain("License");
     expect(toc).not.toContain("Author");
   });
+
+  it("includes Running Tests when test_command is set", () => {
+    const toc = buildTableOfContents({ test_command: "npm test" });
+    expect(toc).toContain("Running Tests");
+  });
+
+  it("omits Running Tests when test_command is absent", () => {
+    const toc = buildTableOfContents({});
+    expect(toc).not.toContain("Running Tests");
+  });
 });

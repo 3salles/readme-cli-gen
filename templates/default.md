@@ -91,6 +91,16 @@ $ docker run -d -p {{docker_port}}:{{docker_port}} {{project_name}}
 $ npm run dev
 ```
 
+{{#if test_command}}
+
+### :test_tube: Running Tests
+
+```bash
+$ {{test_command}}
+```
+
+{{/if}}
+
 ## :handshake: Contributing
 
 To contribute to {{project_name}}, follow these steps:

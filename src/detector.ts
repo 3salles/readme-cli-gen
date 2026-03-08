@@ -14,6 +14,7 @@ export interface ProjectInfo {
   envVars?: string[];
   dockerPort?: string;
   hasDocker?: boolean;
+  testCommand?: string;
 }
 
 export function detectProject(projectPath: string): ProjectInfo {
@@ -84,6 +85,11 @@ export function detectProject(projectPath: string): ProjectInfo {
       .filter((l) => l.trim() && !l.startsWith("#"))
       .map((l) => l.split("=")[0]?.trim() ?? l.trim());
   }
+
+  const testScript = Object.keys(info.scripts ?? {}).find(
+    (s) => s === "test" || s.startsWith("test:"),
+  );
+  if (testScript) info.testCommand = `npm run ${testScript}`;
 
   const dockerfilePath = path.join(projectPath, "Dockerfile");
   if (fs.existsSync(dockerfilePath)) {
