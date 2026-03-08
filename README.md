@@ -1,22 +1,22 @@
 <p align="center">
-  <h3 align="center">readme-gen</h3>
+  <h3 align="center">readme-cli-gen</h3>
 </p>
 
 <p align="center">
-  <a href="https://github.com/3salles/readme-gen">
-    <img src="https://img.shields.io/github/repo-size/3salles/readme-gen?style=for-the-badge" alt="GitHub repo size">
+  <a href="https://github.com/3salles/readme-cli-gen">
+    <img src="https://img.shields.io/github/repo-size/3salles/readme-cli-gen?style=for-the-badge" alt="GitHub repo size">
   </a>
-  <a href="https://github.com/3salles/readme-gen">
-    <img src="https://img.shields.io/github/languages/count/3salles/readme-gen?style=for-the-badge" alt="GitHub language count">
+  <a href="https://github.com/3salles/readme-cli-gen">
+    <img src="https://img.shields.io/github/languages/count/3salles/readme-cli-gen?style=for-the-badge" alt="GitHub language count">
   </a>
-  <a href="https://github.com/3salles/readme-gen">
-    <img src="https://img.shields.io/github/forks/3salles/readme-gen?style=for-the-badge" alt="GitHub forks">
+  <a href="https://github.com/3salles/readme-cli-gen">
+    <img src="https://img.shields.io/github/forks/3salles/readme-cli-gen?style=for-the-badge" alt="GitHub forks">
   </a>
-  <a href="https://github.com/3salles/readme-gen/issues">
-    <img src="https://img.shields.io/github/issues/3salles/readme-gen?style=for-the-badge" alt="GitHub open issues">
+  <a href="https://github.com/3salles/readme-cli-gen/issues">
+    <img src="https://img.shields.io/github/issues/3salles/readme-cli-gen?style=for-the-badge" alt="GitHub open issues">
   </a>
-  <a href="https://github.com/3salles/readme-gen/pulls">
-    <img src="https://img.shields.io/github/issues-pr/3salles/readme-gen?style=for-the-badge" alt="GitHub open pull requests">
+  <a href="https://github.com/3salles/readme-cli-gen/pulls">
+    <img src="https://img.shields.io/github/issues-pr/3salles/readme-cli-gen?style=for-the-badge" alt="GitHub open pull requests">
   </a>
   <img src="https://img.shields.io/static/v1?label=License&message=MIT&color=0000ff&style=for-the-badge" alt="License">
 </p>
@@ -32,7 +32,6 @@
   * [Running](#arrow_forward-running)
   * [Running Tests](#test_tube-running-tests)
 * [Contributing](#handshake-contributing)
-* [Contributors](#contributors)
 * [License](#page_facing_up-license)
 * [Author](#technologist-author)
 
@@ -44,7 +43,7 @@ CLI tool that automatically generates README.md files by reading your project's 
 
 ### :coffee: Usage
 
-To use readme-gen, run the following command:
+To use readme-cli-gen, run the following command:
 
 ```bash
 $ npm run dev
@@ -67,8 +66,8 @@ $ npm run dev
 Clone this project repository:
 
 ```bash
-$ git clone https://github.com/3salles/readme-gen.git
-$ cd readme-gen
+$ git clone https://github.com/3salles/readme-cli-gen.git
+$ cd readme-cli-gen
 ```
 
 ### :construction: Installing Dependencies
@@ -76,6 +75,8 @@ $ cd readme-gen
 ```bash
 $ npm install
 ```
+
+
 
 
 
@@ -89,6 +90,8 @@ $ npm run dev
 
 
 
+
+
 ### :test_tube: Running Tests
 
 ```bash
@@ -99,38 +102,16 @@ $ npm run test
 
 ## :handshake: Contributing
 
-To contribute to readme-gen, follow these steps:
+To contribute to readme-cli-gen, follow these steps:
 
 1. Fork this repository.
 2. Create a branch: `git checkout -b <branch_name>`.
 3. Make your changes and commit: `git commit -m '<commit_message>'`
-4. Push to the original branch: `git push origin readme-gen/<local>`
+4. Push to the original branch: `git push origin readme-cli-gen/<local>`
 5. Create a pull request.
 
 See the GitHub docs on [how to create a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
-
-
-## 🤝 Contributors
-
-Thanks to the following people who contributed to this project:
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/jdoe">
-        <img src="https://avatars.githubusercontent.com/jdoe" width="100px;" alt="John Doe"/><br>
-        <sub><b>John Doe</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/mjay">
-        <img src="https://avatars.githubusercontent.com/mjay" width="100px;" alt="Mary Jane"/><br>
-        <sub><b>Mary Jane</b></sub>
-      </a>
-    </td>
-  </tr>
-</table>
 
 
 

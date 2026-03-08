@@ -202,19 +202,47 @@ export async function promptTests(info: ProjectInfo): Promise<string | undefined
   );
 }
 
+export async function promptLocalInstall(info: ProjectInfo): Promise<string | undefined> {
+  const showLocal = await promptWithCancel(
+    p.confirm({ message: "Display local installation section?" }),
+  );
+  if (!showLocal) return undefined;
+
+  const priority = ["dev", "start", "serve", "preview"];
+  const detectedScripts = priority
+    .filter((s) => s in (info.scripts ?? {}))
+    .map((s) => `npm run ${s}`);
+
+  const firstScript = detectedScripts[0];
+  if (firstScript) {
+    const useDetected = await promptWithCancel(
+      p.confirm({ message: `Use "${firstScript}" as run command?` }),
+    );
+    if (useDetected) return firstScript;
+  }
+
+  return promptWithCancel(
+    p.text({
+      message: "What is the command to run the project locally?",
+      placeholder: "npm run dev",
+      validate: (v) =>
+        !v || v.trim() === "" ? "Command cannot be empty." : undefined,
+    }),
+  );
+}
+
 export async function promptUsage(info: ProjectInfo): Promise<string | undefined> {
   const showUsage = await promptWithCancel(
     p.confirm({ message: "Display usage section?" }),
   );
   if (!showUsage) return undefined;
 
-  const detectedScripts = Object.keys(info.scripts ?? {})
-    .filter((s) => ["start", "dev", "serve", "preview"].includes(s))
+  const priority = ["start", "dev", "serve", "preview"];
+  const detectedScripts = priority
+    .filter((s) => s in (info.scripts ?? {}))
     .map((s) => `npm run ${s}`);
 
   if (detectedScripts.length > 0) {
-    p.log.success(`Detected scripts: ${detectedScripts.join(", ")}`);
-
     const firstScript = detectedScripts[0];
     if (firstScript) {
       const useDetected = await promptWithCancel(

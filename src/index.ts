@@ -9,6 +9,7 @@ import {
   promptDocker,
   promptEnvVars,
   promptLicense,
+  promptLocalInstall,
   promptTests,
   promptUsage,
   promptWithCancel,
@@ -39,6 +40,7 @@ async function main() {
   const { hasDocker, dockerPort } = await promptDocker(info);
   const envVars = await promptEnvVars(info);
   const testCommand = await promptTests(info);
+  const runCommand = await promptLocalInstall(info);
   const usageCommand = await promptUsage(info);
   const contributorsTable = await promptContributors();
   const license = await promptLicense(info);
@@ -55,6 +57,7 @@ async function main() {
     author,
     usage_command: usageCommand,
     test_command: testCommand,
+    run_command: runCommand,
   });
 
   const data: TemplateData = {
@@ -72,6 +75,7 @@ async function main() {
     license_badge: licenseBadge,
     usage_command: usageCommand,
     test_command: testCommand,
+    run_command: runCommand,
     table_of_contents: tableOfContents,
   };
 

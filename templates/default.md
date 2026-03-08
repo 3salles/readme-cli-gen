@@ -85,11 +85,15 @@ $ docker run -d -p {{docker_port}}:{{docker_port}} {{project_name}}
 
 {{/if}}
 
+{{#if run_command}}
+
 ### :arrow_forward: Running
 
 ```bash
-$ npm run dev
+$ {{run_command}}
 ```
+
+{{/if}}
 
 {{#if test_command}}
 
