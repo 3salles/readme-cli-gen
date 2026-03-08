@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import * as p from "@clack/prompts";
 import fs from "fs";
 import path from "path";
@@ -90,7 +91,10 @@ async function main() {
 
     for (const field of missing) {
       const value = await promptWithCancel(
-        p.text({ message: `What is the value of "${field}"?`, placeholder: field }),
+        p.text({
+          message: `What is the value of "${field}"?`,
+          placeholder: field,
+        }),
       );
       extras[field] = value;
     }
