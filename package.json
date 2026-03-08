@@ -1,10 +1,10 @@
 {
-  "name": "readme-gen",
+  "name": "readme-cli-gen",
   "version": "1.0.0",
   "description": "CLI tool that automatically generates README.md files by reading your project's files and asking only for the missing information.",
   "main": "dist/index.js",
   "bin": {
-    "readme-gen": "./dist/index.js"
+    "readme-cli-gen": "./dist/index.js"
   },
   "type": "module",
   "scripts": {
